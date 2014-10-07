@@ -1,23 +1,38 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <config>
     <modules>
-        <BWW_BundleApi>
+        <ModuleName>
             <version>0.1.0</version>
-        </BWW_BundleApi>
+        </ModuleName>
     </modules>
     <api>
         <resources>
-            <bundlelink translate="title" module="bww_bundleapi">
-                <title>Bundle creation extension</title>
-                <acl>bundlelink</acl>
-                <model>BWW_BundleApi_Model_Api</model>
+            <customer translate="title" module="xyz">
+                <model>BundleApi_Model_Api</model>
+                <title>Bundle Resource</title>
+                <acl>customer</acl>
                 <methods>
-                    <getbundleids translate="title" module="bww_bundleapi">
-                        <title>Create a selection link</title>
+                    <getbundleids translate="title" module="xyz">
+                        <title>Retrieve bundle ID</title>
+                        <acl>customer/getbundleids</acl>
+                        <method>getbundleids</method>
                     </getbundleids>
                 </methods>
-            </bundlelink>
+                <faults module="xyz">                   
+                </faults>
+            </customer>
         </resources>
-
+        <acl>
+            <resources>
+                <customer translate="title" module="xyz">
+                    <title>Customers</title>
+                    <getbundleids translate="title" module="xyz">
+                        <title>Get Info Test</title>
+                    </getbundleids>
+                </customer>
+                <all>
+                </all>
+            </resources>
+        </acl>
     </api>
 </config>
