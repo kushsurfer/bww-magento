@@ -2,10 +2,7 @@
 <layout version="0.1.0">   
   <bundleids_index_index>   
       <reference name="root">
-            <block type="page/html" name="root" output="toHtml" template="blank.phtml" />
+            <block type="page/html" name="root" output="toHtml" template="bundleids/index.phtml" />
       </reference>
-      <reference name="content">   
-        <block type="bundleids/index" name="bundleids_index" template="bundleids/index.phtml"/>   
-      </reference>  
   </bundleids_index_index>   
 </layout>
