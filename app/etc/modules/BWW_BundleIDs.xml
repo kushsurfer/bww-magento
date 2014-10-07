@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <BWW_BundleIDs>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </BWW_BundleIDs>
+  </modules>
+</config>
