@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <modules>
-        <ModuleName>
+        <BundleApi>
             <version>0.1.0</version>
-        </ModuleName>
+        </BundleApi>
     </modules>
     <api>
         <resources>
