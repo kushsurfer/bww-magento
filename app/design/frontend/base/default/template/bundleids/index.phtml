@@ -1,5 +1,19 @@
 <?php
-$bundleIds = Mage::getResourceSingleton('bundle/selection')->getParentIdsByChild(5);
-
-echo $bundleIds;
+ 
+	$bundled_product = new Mage_Catalog_Model_Product();		
+	$bundled_product->load(21);
+ 
+ 
+	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
+		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
+	);
+ 
+	$bundled_items = array();
+	foreach($selectionCollection as $option) 
+	{
+		$bundled_items[] = $option->product_id;
+	}
+ 
+	print_r($bundled_items);
+ 
 ?>
