@@ -1,16 +1,23 @@
 <?xml version="1.0"?>
 <config>
+    <modules>
+        <BWW_BundleApi>
+            <version>0.1.0</version>
+        </BWW_BundleApi>
+    </modules>
     <api>
         <resources>
-            <bundle_link translate="title" module="bww_bundleapi">
+            <bundlelink translate="title" module="bww_bundleapi">
                 <title>Bundle creation extension</title>
-                <model>bundleapi/api</model>
+                <acl>bundlelink</acl>
+                <model>BWW_BundleApi_Model_Api</model>
                 <methods>
                     <getbundleids translate="title" module="bww_bundleapi">
                         <title>Create a selection link</title>
                     </getbundleids>
                 </methods>
-            </bundle_link>
+            </bundlelink>
         </resources>
+
     </api>
 </config>
