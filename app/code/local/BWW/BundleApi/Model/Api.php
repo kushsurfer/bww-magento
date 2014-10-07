@@ -1,5 +1,5 @@
 <?php
-class BundleApi_Model_Api extends Mage_Api_Model_Resource_Abstract
+class BWW_BundleApi_Model_Api extends Mage_Api_Model_Resource_Abstract
 {
 
     // public function createSelectionLink($items, $selectionRawData, $productId, $storeid)
@@ -40,7 +40,7 @@ class BundleApi_Model_Api extends Mage_Api_Model_Resource_Abstract
 
 
 
-    public function getbundleids(){
+    public function listitems(){
         echo 'adsfas';
     }
 }

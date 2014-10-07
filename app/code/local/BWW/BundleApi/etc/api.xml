@@ -2,16 +2,29 @@
 <config>
     <api>
         <resources>
-            <bundlelink translate="title" module="bww_bundleapi">
-                <title>Bundle creation extension</title>
-                <model>bundleapi/api</model>
+             <bundleapi translate="title" module="customer">
+                <title>Customer Resource</title>
                 <methods>
-                    <getbundleids translate="title" module="bww_bundleapi">
-                        <title>Create a selection link</title>
-                    </getbundleids>
+                    <listitems translate="title" module="customer">
+                        <title>Retrive customers</title>    
+                        <acl>bundleapi/listitems</acl>                   
+                    </listitems>
+                   
                 </methods>
-            </bundlelink>
+                <faults module="customer">                   
+                </faults>
+            </bundleapi>
         </resources>
-
+         <acl>
+            <resources>
+               <bundleapi translate="title" module="customer">
+                 <title>Customers</title>
+                 <listitems translate="title" module="customer">
+                    <title>View All</title>
+                 </listitems>
+                                       
+                </bundleapi>
+            </resources>
+        </acl>
     </api>
 </config>
