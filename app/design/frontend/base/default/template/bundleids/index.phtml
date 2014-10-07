@@ -11,67 +11,12 @@
 	$bundled_items = array();
 	foreach($selectionCollection as $option) 
 	{
-		// var_dump($option);
-		echo '<br/><br/><br/>';
-		echo $option->getOptionId();
-		$bundled_items[] = $option->product_id;
+		$bundled_items[$option->getOptionId()][] = $option->product_id;
 	}
  
 	print_r($bundled_items);
 	echo '<br/><br/><br/>';
 	echo json_encode($bundled_items);
-
-
-
-
-// require_once('app/Mage.php'); //Path to Magento
-// umask(0);
-// Mage::app("default");
-
-// $orderNumber = 260038;  
-
-// $order = Mage::getModel('sales/order')->loadByIncrementId($orderNumber);
-// $store_id = $order->getStoreId();
-
-// foreach ($order->getAllItems() as $item){ 
-//     $product = Mage::getModel('catalog/product')->setStoreId($store_id)->load($item->product_id);
-//     $options = Mage::getModel('bundle/option')->getResourceCollection()
-//                                               ->setProductIdFilter($item->product_id)
-//                                               ->setPositionOrder(); 
-//     $options->joinValues($store_id);
-
-//     $selections = $product->getTypeInstance(true)
-//                           ->getSelectionsCollection($product->getTypeInstance(true)
-//                           ->getOptionsIds($product), $product);
-
-//     foreach ($options->getItems() as $option) {
-//         $option_id = $option->getId();
-//         echo 'Option: ' . $option->getTitle() . ' [id: ' . $option_id . ']<br />'; 
-
-//         foreach($selections as $selection){ 
-//             if($option_id == $selection->getOptionId()){
-//                 $selection_id         = $selection->getId();
-//                 $selection_name       = $selection->getName();
-//                 $selection_qty        = $selection->getSelectionQty();
-//                 $selection_sku        = $selection->getSku();
-//                 $selection_product_id = $selection->getProductId();
-//                 $selection_weight     = $selection->getWeight();
-//                 $selection_price      = $selection->getPrice();
-
-//                 $data = 'Selection Name: ' . $selection_name;
-//                 $data .= ', SKU: ' . $selection_sku;
-//                 $data .= ', Qty: ' . $selection_qty;
-//                 $data .= ', ID: ' . $selection_id;
-//                 $data .= ', Product ID: ' . $selection_product_id;
-//                 $data .= ', Weight: ' . $selection_weight;
-//                 $data .= ', Price: ' . $selection_price;
-
-//                 echo $data . '<br />';
-//             }
-//         }
-//     }
-// }
-
 
  
 ?>
