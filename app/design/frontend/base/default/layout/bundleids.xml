@@ -3,7 +3,6 @@
   <bundleids_index_index>   
     <remove name="header" />
     <remove name="footer" />
-  	<remove name="root" />
     <reference name="root">   
       <action method="setTemplate"><template>page/1column.phtml</template></action>   
     </reference>   
