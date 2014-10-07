@@ -1,1 +1,20 @@
-Demo Page
+<?php
+
+	  if($_product->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE){
+                $bundleed_product_model = Mage::getModel('bundle/product_type');
+                $bundleedParentIds = $bundleed_product_model->getParentIdsByChild($_product->getId()); 
+
+                if(sizeof($bundleedParentIds) >0){
+                    foreach($bundleedParentIds as $bundleedParentId)
+                    {
+                        if(!in_array($bundleedParentId, $bundleProIds)) { 
+                            $iCnt++;
+                            $bundleProIds[]= $bundleedParentId; 
+                            $bundleProducts[] = Mage::getModel('catalog/product')->load($bundleedParentId);
+                        }
+                        if($iCnt == 4){break;}
+                    }
+                }
+            }
+
+?>
