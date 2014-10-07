@@ -1,5 +1,5 @@
 <?php
-class BWW_BundleApi_Model_Api extends Mage_Api_Model_Resource_Abstract
+class BundleApi_Model_Api extends Mage_Api_Model_Resource_Abstract
 {
 
     // public function createSelectionLink($items, $selectionRawData, $productId, $storeid)
