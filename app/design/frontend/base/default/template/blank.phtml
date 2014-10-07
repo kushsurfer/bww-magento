@@ -1,11 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Untitled</title>
-    <meta name="generator" content="BBEdit 9.2" />
-</head>
-<body>
-	<?php echo $this->getChildHtml('content') ?>
-</body>
-</html>
+<?php
+ 
+	$bundled_product = new Mage_Catalog_Model_Product();		
+	$bundled_product->load(21);
+ 
+ 
+	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
+		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
+	);
+ 	
+	$bundled_items = array();
+	foreach($selectionCollection as $option) 
+	{
+		$bundled_items[$option->getOptionId()][] = $option->product_id;
+	}
+ 
+	print_r($bundled_items);
+	echo '<br/><br/><br/>';
+	echo json_encode($bundled_items);
+
+ 
+?>
