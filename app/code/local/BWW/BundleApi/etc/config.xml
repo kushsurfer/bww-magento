@@ -1,0 +1,15 @@
+<!-- config.xml -->
+<config>
+    <modules>
+        <BWW_BundleApi><!-- COMPANYNAME_MODULE -->
+            <version>0.0.0.1</version>
+        </BWW_BundleApi>
+    </modules>
+    <global>
+        <models>
+            <bundleApi><!-- MODULE, just first letter is lowercased, i.e. module CustomAPI would be placed here as customAPI -->
+                <class>BWW_BundleApi_Model_Api</class>
+            </bundleApi>
+        </models>
+    </global>
+</config>
