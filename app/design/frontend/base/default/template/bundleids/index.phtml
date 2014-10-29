@@ -6,7 +6,13 @@
  	
 
  	 $opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter(21)->setPositionOrder()->joinValues($this->getStoreFilter());
- 	 var_dump($opt->getItems('default_title'));
+ 	 $titles = $opt->getItems('default_title');
+
+ 	 foreach ($titles as $key => $value){
+ 	 	echo $key.'<br/>';
+ 	 	var_dump($value);
+ 	 	echo '<br/><br/><br/>';
+ 	 }
 
  	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
