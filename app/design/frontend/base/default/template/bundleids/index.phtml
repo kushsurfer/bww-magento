@@ -8,13 +8,14 @@
  	 $opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter(21)->setPositionOrder()->joinValues($this->getStoreFilter());
  	 $titles = $opt->getItems('default_title');
 
+ 	 $optionTitle = array();
+
  	 foreach ($titles as $key => $value){
- 	 	echo $key.'<br/>';
  	 	$val = $value->getData();
- 	 	echo $value['default_title'];
- 	 	// foreach ()
- 	 	echo '<br/><br/><br/>';
- 	 }
+ 	 	$optionTitle[$value['option_id']] =  $value['default_title'];
+ 	 
+ 	}
+ 	var_dump($optionTitle);
 
  	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
@@ -23,7 +24,7 @@
 	$bundled_items = array();
 	foreach($selectionCollection as $option) 
 	{	
-		// var_dump($option->getOptions('Title'));
+		var_dump($option->getData());
 		$bundled_items[$option->getOptionId()][] = $option->product_id;
 	}
  
