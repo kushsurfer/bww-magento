@@ -2,8 +2,8 @@
  
 	$bundled_product = new Mage_Catalog_Model_Product();		
 	$bundled_product->load(21);
- 	var_dump(Mage::getModel('catalog/product_bundle_option'));
- 	// var_dump($bundled_product->getTypeInstance(true)->getOptions());
+ 	
+ 	var_dump($bundled_product->getOptions());
 	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 	);
