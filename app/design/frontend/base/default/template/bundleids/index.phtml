@@ -14,7 +14,7 @@
  	 foreach ($titles as $key => $value){
  	 	$val = $value->getData();
  	 	$optionTitle[$value['option_id']] =  $value['default_title'];
- 	 	$bundled_items[$value['option_id']]['title'] = $value['default_title'];
+ 	 	$bundled_items[$value['default_title']]['option_id'] = $value['option_id'];
  	 
  	}
  	
@@ -26,7 +26,7 @@
 	foreach($selectionCollection as $option) 
 	{	
 		
-		$bundled_items[$option->getOptionId()]['productIDs'][] = $option->product_id;
+		$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
 	}
  
 	// print_r($bundled_items);
