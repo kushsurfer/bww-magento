@@ -3,7 +3,7 @@
 	$bundled_product = new Mage_Catalog_Model_Product();		
 	$bundled_product->load(21);
  
- 
+ 	var_dump($bundled_product->getOptions());
 	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 	);
@@ -11,7 +11,7 @@
 	$bundled_items = array();
 	foreach($selectionCollection as $option) 
 	{
-		var_dump($option->getOptionId('Title')); echo'<br/>';
+		// var_dump($option->getOptionId('Title')); echo'<br/>';
 		$bundled_items[$option->getOptionId()][] = $option->product_id;
 	}
  
