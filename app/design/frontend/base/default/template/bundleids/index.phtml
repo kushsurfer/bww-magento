@@ -10,7 +10,8 @@
 
  	 foreach ($titles as $key => $value){
  	 	echo $key.'<br/>';
- 	 	var_dump($value->getData());
+ 	 	$val = $value->getData();
+ 	 	echo $value['default_title'];
  	 	// foreach ()
  	 	echo '<br/><br/><br/>';
  	 }
