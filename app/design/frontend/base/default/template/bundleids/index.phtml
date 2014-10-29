@@ -4,28 +4,29 @@
 	$bundled_product->load(21);
  	
  	
-
+	// 21 is your bundle product ID
  	 $opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter(21)->setPositionOrder()->joinValues($this->getStoreFilter());
  	 $titles = $opt->getItems('default_title');
 
  	 $optionTitle = array();
+ 	 $bundled_items = array();
 
  	 foreach ($titles as $key => $value){
  	 	$val = $value->getData();
  	 	$optionTitle[$value['option_id']] =  $value['default_title'];
+ 	 	$bundled_items[$value['option_id']]['title'] = $value['default_title']
  	 
  	}
- 	var_dump($optionTitle);
+ 	
 
  	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 	);
  	
-	$bundled_items = array();
 	foreach($selectionCollection as $option) 
 	{	
-		var_dump($option->getData());
-		$bundled_items[$option->getOptionId()][] = $option->product_id;
+		
+		$bundled_items[$option->getOptionId()]['productIDs'][] = $option->product_id;
 	}
  
 	// print_r($bundled_items);
