@@ -3,7 +3,7 @@
 	$bundled_product = new Mage_Catalog_Model_Product();		
 	$bundled_product->load(21);
  	
- 	$opt = Mage::helper('core')->decorateArray($this->getOptions());
+ 	$opt = Mage::helper('core')->decorateArray($bundled_product->getOptions());
  	var_dump($opt);
 
  	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
