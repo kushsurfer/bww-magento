@@ -2,7 +2,11 @@
  
 	$bundled_product = new Mage_Catalog_Model_Product();		
 	$bundled_product->load(21);
- 	var_dump($bundled_product->_getData('title'));
+ 	
+
+	$bundledsize = Mage::getModel('catalog/product')->load(21)->getAttributeText('title'); 
+	echo $bundledsize;
+
  	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 	);
