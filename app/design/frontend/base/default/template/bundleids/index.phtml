@@ -6,8 +6,8 @@
  	
 
  	 $opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter(21)->setPositionOrder()->joinValues($this->getStoreFilter());
- 	 var_dump($opt->getItems());
- 	 
+ 	 var_dump($opt->getItems('default_title'));
+
  	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 	);
