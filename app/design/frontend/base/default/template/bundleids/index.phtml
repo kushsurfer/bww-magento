@@ -11,7 +11,7 @@
 	$bundled_items = array();
 	foreach($selectionCollection as $option) 
 	{
-		var_dump($option->getOption()); echo'<br/>';
+		var_dump($option->getOptions()); echo'<br/>';
 		$bundled_items[$option->getOptionId()][] = $option->product_id;
 	}
  
