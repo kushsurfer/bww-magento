@@ -31,7 +31,9 @@
 	 	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 			$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 		);
-	 	
+		
+	 	$typeInstance = $bundled_product->getTypeInstance(true);
+
 	 	$optionCollection = $typeInstance->getOptionsCollection($product);
 
  		$_options = $optionCollection->appendSelections($selectionCollection, false,
