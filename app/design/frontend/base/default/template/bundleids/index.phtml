@@ -35,7 +35,7 @@
 	 	$typeInstance = $bundled_product->getTypeInstance(true);
 
 	 	$optionCollection = $typeInstance->getOptionsCollection($bundled_product);
-	 	
+
  		$_options = $optionCollection->appendSelections($selectionCollection, false,
                 Mage::helper('catalog/product')->getSkipSaleableCheck()
                 );
@@ -45,9 +45,11 @@
         foreach ($_options as $key => $value) {
         	echo $key;
             foreach ($value['selections'] as $selKey => $selection) {
+
             	$selection = $selection->getData('selection_id');
                 $bundle_option[$selection->option_id][] = $selection['selection_id'];
-                echo $selection['selection_id'];exit;
+
+                echo 'id: '.$selection['product_id']. ' name: '.$selection['name'].' selectionID : '.$selection['selection_id'];exit;
                 echo '<br/><br/><br/>';
             }
             
