@@ -43,7 +43,7 @@
         $bundle_option = array();
 
         foreach ($_options as $key => $value) {
-        	$devicetitle = $value->getData('default_title'));
+        	$devicetitle = $value->getData('default_title');
 			$option_id = $value->getData('option_id');
 
 			$bundled_items[$devicetitle]['option_id'] = $option_id;
@@ -52,7 +52,7 @@
 
             	$selection = $selection->getData();
 
-                $bundle_option[$selection->option_id][] = $selection['selection_id'];
+                // $bundle_option[$selection->option_id][] = $selection['selection_id'];
 
                 $bundled_items[$devicetitle]['prodIDs'][$selection['product_id']] = $selection['selection_id'];
                 // echo 'id: '.$selection['product_id']. ' name: '.$selection['name'].' selectionID : '.$selection['selection_id'];exit;
