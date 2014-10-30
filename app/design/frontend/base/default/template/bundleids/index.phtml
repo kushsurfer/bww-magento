@@ -31,7 +31,7 @@
 	 	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
 			$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 		);
-		
+
 	 	$typeInstance = $bundled_product->getTypeInstance(true);
 
 	 	$optionCollection = $typeInstance->getOptionsCollection($bundled_product);
@@ -44,17 +44,19 @@
 
         foreach ($_options as $key => $value) {
             foreach ($value['selections'] as $selKey => $selection) {
+            	var_dump($selection);
                 $bundle_option[$selection->option_id][] = $selection['selection_id'];
+                echo '<br/><br/><br/>';
             }
         }
 
-        var_dump($bundle_option);
+        // var_dump($bundle_option);
 		foreach($selectionCollection as $option) 
 		{	
 			
 			$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
 			
-			echo '<br/><br/><br/>';
+			
 		}
 	 
 		// print_r($bundled_items);
