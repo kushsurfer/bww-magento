@@ -48,8 +48,8 @@
 
             	$prod = $selection->getData('product_id');
             	$name = $selection->getData('name');
-            	$s = $selection->getData('selection_id');
-            	var_dump($s);
+            	$s = $selection->getData();
+            	var_dump($s);exit;
             	
                 // $bundle_option[$selection->option_id][] = $selection['selection_id'];
 
