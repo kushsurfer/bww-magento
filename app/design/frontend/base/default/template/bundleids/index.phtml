@@ -1,39 +1,43 @@
 <?php
  
-	$bundled_product = new Mage_Catalog_Model_Product();		
-	$bundled_product->load(21);
- 	
- 	echo $_GET['prodID'];
- 	
-	// 21 is your bundle product ID
- 	 $opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter(21)->setPositionOrder()->joinValues($this->getStoreFilter());
- 	 $titles = $opt->getItems('default_title');
+ 	if(!isset($_GET['prodID'])){
+ 		header("Location: ". Mage::getBaseUrl());
+		die();
+ 	}else {
+	 	$prodID = $_GET['prodID'];
+		$bundled_product = new Mage_Catalog_Model_Product();		
+		$bundled_product->load($prodID);
+	 	
 
- 	 $optionTitle = array();
- 	 $bundled_items = array();
+	 	
+		$opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter($prodID)->setPositionOrder()->joinValues($this->getStoreFilter());
+	 	$titles = $opt->getItems('default_title');
 
- 	 // get option title
- 	 foreach ($titles as $key => $value){
- 	 	$val = $value->getData();
- 	 	$optionTitle[$value['option_id']] =  $value['default_title'];
- 	 	$bundled_items[$value['default_title']]['option_id'] = $value['option_id'];
- 	 
- 	}
- 	
+	 	$optionTitle = array();
+	 	$bundled_items = array();
 
- 	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
-		$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
-	);
- 	
-	foreach($selectionCollection as $option) 
-	{	
-		
-		$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
+	 	// get option title
+	 	foreach ($titles as $key => $value){
+	 	 	$val = $value->getData();
+	 	 	$optionTitle[$value['option_id']] =  $value['default_title'];
+	 	 	$bundled_items[$value['default_title']]['option_id'] = $value['option_id'];
+	 	 
+	 	}
+	 	
+
+	 	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
+			$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
+		);
+	 	
+		foreach($selectionCollection as $option) 
+		{	
+			
+			$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
+		}
+	 
+		// print_r($bundled_items);
+		// echo '<br/><br/><br/>';
+		echo json_encode($bundled_items);
 	}
- 
-	// print_r($bundled_items);
-	// echo '<br/><br/><br/>';
-	echo json_encode($bundled_items);
-
  
 ?>
