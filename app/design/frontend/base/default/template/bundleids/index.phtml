@@ -11,21 +11,21 @@
 	 	
 	 
 	 	
-		$opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter($prodID)->setPositionOrder()->joinValues($this->getStoreFilter());
+		// $opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter($prodID)->setPositionOrder()->joinValues($this->getStoreFilter());
 
 
-	 	$titles = $opt->getItems('default_title');
+	 // 	$titles = $opt->getItems('default_title');
 
-	 	$optionTitle = array();
-	 	$bundled_items = array();
+	 // 	$optionTitle = array();
+	 // 	$bundled_items = array();
 
-	 	// get option title
-	 	foreach ($titles as $key => $value){
-	 	 	$val = $value->getData();
-	 	 	$optionTitle[$value['option_id']] =  $value['default_title'];
-	 	 	$bundled_items[$value['default_title']]['option_id'] = $value['option_id'];
+	 // 	// get option title
+	 // 	foreach ($titles as $key => $value){
+	 // 	 	$val = $value->getData();
+	 // 	 	$optionTitle[$value['option_id']] =  $value['default_title'];
+	 // 	 	$bundled_items[$value['default_title']]['option_id'] = $value['option_id'];
 	 	 
-	 	}
+	 // 	}
 	 	
 
 	 	$selectionCollection = $bundled_product->getTypeInstance(true)->getSelectionsCollection(
@@ -43,32 +43,36 @@
         $bundle_option = array();
 
         foreach ($_options as $key => $value) {
-        	// echo $key;
-        	var_dump($value->getData('default_title'));exit;
+        	$devicetitle = $value->getData('default_title'));
+			$option_id = $value->getData('option_id');
+
+			$bundled_items[$devicetitle]['option_id'] = $option_id;
+
             foreach ($value['selections'] as $selKey => $selection) {
 
             	$selection = $selection->getData();
 
                 $bundle_option[$selection->option_id][] = $selection['selection_id'];
 
-                echo 'id: '.$selection['product_id']. ' name: '.$selection['name'].' selectionID : '.$selection['selection_id'];exit;
-                echo '<br/><br/><br/>';
+                $bundled_items[$devicetitle]['prodIDs'][$selection['product_id']] = $selection['selection_id'];
+                // echo 'id: '.$selection['product_id']. ' name: '.$selection['name'].' selectionID : '.$selection['selection_id'];exit;
+                // echo '<br/><br/><br/>';
             }
             
         }
 
-        // var_dump($bundle_option);
-		foreach($selectionCollection as $option) 
-		{	
+  //       // var_dump($bundle_option);
+		// foreach($selectionCollection as $option) 
+		// {	
 			
-			$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
+		// 	$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
 			
 			
-		}
+		// }
 	 
 		// print_r($bundled_items);
 		// echo '<br/><br/><br/>';
-		// echo json_encode($bundled_items);
+		echo json_encode($bundled_items);
 	}
  
 ?>
