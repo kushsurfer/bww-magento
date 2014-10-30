@@ -44,7 +44,7 @@
 
         foreach ($_options as $key => $value) {
         	// echo $key;
-        	var_dump($value->getData());exit;
+        	var_dump($value->getData('default_title'));exit;
             foreach ($value['selections'] as $selKey => $selection) {
 
             	$selection = $selection->getData();
