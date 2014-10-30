@@ -43,8 +43,8 @@
         $bundle_option = array();
 
         foreach ($_options as $key => $value) {
-        	echo $key;
-        	var_dump($value);exit;
+        	// echo $key;
+        	var_dump($value->getData());exit;
             foreach ($value['selections'] as $selKey => $selection) {
 
             	$selection = $selection->getData();
