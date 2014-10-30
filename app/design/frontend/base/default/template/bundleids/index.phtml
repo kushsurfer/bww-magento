@@ -3,7 +3,8 @@
  	if(!isset($_GET['prodID'])){
  		header("Location: ". Mage::getBaseUrl());
 		die();
- 	}else {
+ 	
+ 	} else {
 	 	$prodID = $_GET['prodID'];
 		$bundled_product = new Mage_Catalog_Model_Product();		
 		$bundled_product->load($prodID);
@@ -33,6 +34,8 @@
 		{	
 			
 			$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
+			var_dump($option);
+			echo '<br/><br/><br/>';
 		}
 	 
 		// print_r($bundled_items);
