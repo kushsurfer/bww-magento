@@ -35,7 +35,7 @@
 	 	$typeInstance = $bundled_product->getTypeInstance(true);
 
 	 	$optionCollection = $typeInstance->getOptionsCollection($bundled_product);
-
+	 	var_dump($optionCollection);
  		$_options = $optionCollection->appendSelections($selectionCollection, false,
                 Mage::helper('catalog/product')->getSkipSaleableCheck()
                 );
