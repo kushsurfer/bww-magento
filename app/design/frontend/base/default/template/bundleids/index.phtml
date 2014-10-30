@@ -44,10 +44,11 @@
 
         foreach ($_options as $key => $value) {
         	echo $key;
+        	var_dump($value);exit;
             foreach ($value['selections'] as $selKey => $selection) {
 
             	$selection = $selection->getData();
-            	
+
                 $bundle_option[$selection->option_id][] = $selection['selection_id'];
 
                 echo 'id: '.$selection['product_id']. ' name: '.$selection['name'].' selectionID : '.$selection['selection_id'];exit;
