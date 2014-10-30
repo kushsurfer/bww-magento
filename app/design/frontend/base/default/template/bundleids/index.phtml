@@ -12,6 +12,8 @@
 
 	 	
 		$opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter($prodID)->setPositionOrder()->joinValues($this->getStoreFilter());
+
+		var_dump($opt);
 	 	$titles = $opt->getItems('default_title');
 
 	 	$optionTitle = array();
@@ -34,7 +36,7 @@
 		{	
 			
 			$bundled_items[$optionTitle[$option->getOptionId()]]['productIDs'][] = $option->product_id;
-			var_dump($option);
+			
 			echo '<br/><br/><br/>';
 		}
 	 
