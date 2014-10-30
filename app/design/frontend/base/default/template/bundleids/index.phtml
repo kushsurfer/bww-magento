@@ -9,9 +9,7 @@
 		$bundled_product = new Mage_Catalog_Model_Product();		
 		$bundled_product->load($prodID);
 	 	
-	 	$product = Mage::getModel('catalog/product')->setStoreId(Mage::app()->getStore()->getId())->load($prodID);
-		$optionCollection = $product->getTypeInstance()->getOptionsCollection();
-		var_dump($optionCollection);
+	 
 	 	
 		$opt = Mage::getModel('bundle/option')->getResourceCollection()->setProductIdFilter($prodID)->setPositionOrder()->joinValues($this->getStoreFilter());
 
@@ -34,6 +32,21 @@
 			$bundled_product->getTypeInstance(true)->getOptionsIds($bundled_product), $bundled_product
 		);
 	 	
+	 	$optionCollection = $typeInstance->getOptionsCollection($product);
+
+ 		$_options = $optionCollection->appendSelections($selectionCollection, false,
+                Mage::helper('catalog/product')->getSkipSaleableCheck()
+                );
+
+        $bundle_option = array();
+
+        foreach ($_options as $key => $value) {
+            foreach ($value['selections'] as $selKey => $selection) {
+                $bundle_option[$selection->option_id][] = $selection['selection_id'];
+            }
+        }
+
+        var_dump($bundle_option);
 		foreach($selectionCollection as $option) 
 		{	
 			
