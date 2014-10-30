@@ -26,6 +26,8 @@
 
         foreach ($_options as $key => $value) {
         	$defaultTitle = $value->getData('default_title');
+        	$defaultTitle = str_replace(" ", "_", $defaultTitle);
+
 			$option_id = $value->getData('option_id');
 
 			$bundled_items[$defaultTitle]['option_id'] = $option_id;
