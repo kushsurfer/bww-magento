@@ -49,7 +49,7 @@ class Mage_Authorizenet_Model_Directpost extends Mage_Paygate_Model_Authorizenet
     protected $_canUseInternal          = true;
     protected $_canUseCheckout          = true;
     protected $_canUseForMultishipping  = false;
-    protected $_canSaveCc               = false;
+    protected $_canSaveCc               = true;
     protected $_isInitializeNeeded      = true;
 
     /**
