@@ -69,8 +69,8 @@ class Mage_Payment_Model_Method_Cc extends Mage_Payment_Model_Method_Abstract
             $info->setCcNumberEnc($info->encrypt($info->getCcNumber()));
         }
         $info->setCcCidEnc($info->encrypt($info->getCcCid()));
-        $info->setCcNumber(null)
-            ->setCcCid(null);
+        // $info->setCcNumber(null)
+        //     ->setCcCid(null);
         return $this;
     }
 
