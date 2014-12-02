@@ -119,7 +119,7 @@ Product.Gallery.prototype = {
         this.updateImages();
     },
     updateImages : function() {
-        this.getElement('save').value = Object.toJSON(this.images);
+        this.getElement('save').value = $H(this.images).toJSON(); // Object.toJSON(this.images)
         $H(this.imageTypes).each(
                 function(pair) {
                     this.getFileElement('no_selection',
