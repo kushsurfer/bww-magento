@@ -152,7 +152,7 @@ if(!window.Flex) {
             this.files = event.getData().files;
             this.checkFileSize();
             this.updateFiles();
-            this.getInnerElement('upload').show();
+            // this.getInnerElement('upload').show();
             if (this.onFileSelect) {
                 this.onFileSelect();
             }
